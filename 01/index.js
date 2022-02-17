@@ -25,16 +25,16 @@ const prova = {
         }
     ]
 };
-let acertos = 0;
+let acertosProva = 0;
 function corrigirProva(prova) {
     for (let correcao of prova.questoes) {
         if (correcao.resposta === correcao.correta) {
-            acertos++;
+            acertosProva++;
 
         } else {
             prova.valor -= 2
         }
     }
-    return `O aluno(a) ${prova.aluno} acertou ${acertos} e obteve nota ${prova.valor}`;
+    return `O aluno(a) ${prova.aluno} acertou ${acertosProva} e obteve nota ${prova.valor}`;
 }
 console.log(corrigirProva(prova));
