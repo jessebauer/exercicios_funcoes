@@ -1,4 +1,4 @@
-![](https://i.imgur.com/xG74tOh.png)
+/*![](https://i.imgur.com/xG74tOh.png)
 
 # Exercício 02
 
@@ -84,11 +84,57 @@ Após executar os métodos, fique a vontade para testar as execuções de formas
 
 ---
 
-Preencha a checklist para finalizar o exercício:
-
--   [ ] Resolver o exercício revendo a aula se necessário
--   [ ] Adicionar as mudanças aos commits (`git add .` para adicionar todos os arquivos, ou `git add nome_do_arquivo` para adicionar um arquivo específico)
--   [ ] Commitar a cada mudança significativa ou na finalização do exercício (`git commit -m "Mensagem do commit"`)
--   [ ] Pushar os commits na sua branch na origem (`git push origin nome-da-branch`)
-
-###### tags: `lógica` `módulo 1` `exercício de classe` `nodeJS` `funcao` `objetos`
+*/
+let carro = {
+    ligado: false,
+    velocidade: 0,
+    ligarCarro: function () {
+        if (this.ligado === true) {
+            console.log('O carro já está ligado.');
+            return
+        } else {
+            this.ligado = true;
+            this.velocidade = 0;
+            return console.log(estadoCarro());
+        }
+    },
+    desligarCarro: function () {
+        if (this.ligado === true) {
+            this.ligado = false;
+            this.velocidade = 0;
+            return console.log(estadoCarro());
+        } else {
+            console.log('O carro já está desligado');
+            return
+        }
+    },
+    acelerarCarro: function () {
+        if (this.ligado === false) {
+            console.log('Não é possível acelerar um carro desligado');
+            return
+        } else {
+            this.velocidade += 10;
+            return console.log(estadoCarro());
+        }
+    },
+    desacelerarCarro: function () {
+        if (this.ligado === true && this.velocidade != 0) {
+            this.velocidade -= 10;
+            return console.log(estadoCarro());
+        } else {
+            console.log('Não é possível desacelerar um carro desligado');
+        }
+    }
+}
+function estadoCarro() {
+    return `Carro está ${carro.ligado === true ? "ligado" : "desligado"} e a velocidade é de ${carro.velocidade}.`
+}
+carro.desligarCarro();
+carro.ligarCarro();
+carro.ligarCarro();
+carro.acelerarCarro();
+carro.acelerarCarro();
+carro.desacelerarCarro();
+carro.desligarCarro();
+carro.acelerarCarro();
+carro.desacelerarCarro();
